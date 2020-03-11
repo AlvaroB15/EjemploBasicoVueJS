@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Apuntes VueJs</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+    <br>
+    <br>
+    <div id="app22">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <h1>Agregar Nota</h1>
+                    <br>
+                    
+                    <label for="nota">Nota: </label>
+                    <input type="text" name="nota" id="nota" class="form-control" v-model="nombre">
+                    
+                    <br>
+
+                    <label for="nombre">Nombre: </label>
+                    <input type="number" max="20" min="0" name="nombre" id="nombre" class="form-control" v-model="promedio">
+
+                    <br>
+
+                    <input type="button" value="Añadir" class="btn btn-success" v-on:click="agregarNota">
+
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <h1 v-if="lista.length > 0">Lista de Notass</h1>
+                    <h1 v-else="lista">No existen notas Registradas</h1>
+                    <br>
+                    <table class="table">
+                        <tr>
+                            <th>Nombres</th>
+                            <th>Promedio</th>
+                        </tr>
+                        <tr v-for="item in lista" v-bind:style="item.estado==true?'color:blue':'color:red'">
+                            <td v-text="item.nombre"></td>
+                            <td v-text="item.promedio"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <p class="text-center">
+                        www.prueba.com
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Parte de Codigo para mostrar el v-text y el v-model -->
+        <!-- <h1 v-text="nombreVariable"></h1>
+        <input type="text" v-model="nombreVariable">
+        <input type="text" v-model="nombreVariable"> -->
+
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script src="js/principal.js"></script>
+
+</body>
+</html>
